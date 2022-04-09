@@ -12,7 +12,6 @@ class UserService(@Autowired private val userRepository : UserRepository,
 
     fun oneUser(id: Long): UserData.UserResponse {
         val user = userRepository.findById(id).orElse(null)
-
         return if (user != null) {
             UserData.UserResponse(user.id,user.username,user.age)
         } else {
