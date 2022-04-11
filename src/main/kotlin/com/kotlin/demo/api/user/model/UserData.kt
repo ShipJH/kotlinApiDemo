@@ -17,6 +17,7 @@ class UserData {
 
     data class UserResponse(val id: Long, val name: String, val age : Int) {
         constructor() : this(-1, "", -1)
+        constructor(name : String, age : Int) : this(-1, name, age)
     }
 
 }

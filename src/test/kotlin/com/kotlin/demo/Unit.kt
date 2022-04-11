@@ -12,8 +12,8 @@ class Unit {
         val response = mutableListOf<UserData.UserResponse>()
 
         //when
-        response += UserData.UserResponse(1, "BAE_TEST")
-        response += UserData.UserResponse(2, "KIM_TEST")
+        response += UserData.UserResponse(name = "BAE_TEST", age = 10)
+        response += UserData.UserResponse(name = "KIM_TEST", age = 77)
 
         //then
         assertEquals(2, response.size)
