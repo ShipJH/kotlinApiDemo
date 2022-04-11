@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 import java.util.*
@@ -31,6 +32,11 @@ class UserController(@Autowired private val userService : UserService) {
         userService.registUser(user)
     }
 
+    @PutMapping("/user")
+    fun updateUser(@RequestBody user : UserData.UserRequest): Unit {
+        print("updateUser, request user : $user")
+        userService.updateUser(user)
+    }
 
 
 

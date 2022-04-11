@@ -13,6 +13,10 @@ class UserData {
         fun registUserEntity(): User {
             return User(name = name, age = age)
         }
+
+        fun updateUserEntity(): User {
+            return User(id, name, age)
+        }
     }
 
     data class UserResponse(val id: Long, val name: String, val age : Int) {

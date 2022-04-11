@@ -21,9 +21,8 @@ class UserService(@Autowired private val userRepository : UserRepository,
     }
 
     @Transactional
-    fun registUser(userData: UserData.UserRequest) {
-        val user = userData.registUserEntity()
-        userRepository.save(user)
+    fun registUser(user: UserData.UserRequest) {
+        userRepository.save(user.registUserEntity())
     }
 
     fun allUser(): List<UserData.UserResponse> {
@@ -35,6 +34,12 @@ class UserService(@Autowired private val userRepository : UserRepository,
     }
 
     @Transactional
+    fun updateUser(user: UserData.UserRequest) {
+        userRepository.save(user.updateUserEntity())
+    }
+
+
+    @Transactional
     fun registUserDataClass(user: UserDataClassSample.UserDataClassRequest) {
         userDataClassRepository.save(user)
     }
@@ -42,5 +47,6 @@ class UserService(@Autowired private val userRepository : UserRepository,
     fun allUserDataClass(): List<UserDataClassSample.UserDataClassRequest> {
         return userDataClassRepository.findAll().toList()
     }
+
 
 }
