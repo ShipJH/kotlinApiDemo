@@ -27,8 +27,8 @@ class UserService(@Autowired private val userRepository : UserRepository,
 
     fun allUser(): List<UserData.UserResponse> {
         val response = mutableListOf<UserData.UserResponse>()
-        userRepository.findAll().forEach { l ->
-            response += UserData.UserResponse(l.id, l.username, l.age)
+        userRepository.findAll().forEach {data ->
+            response += UserData.UserResponse(data.id, data.username, data.age)
         }
         return response
     }
